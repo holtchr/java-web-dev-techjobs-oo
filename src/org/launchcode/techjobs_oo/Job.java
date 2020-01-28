@@ -90,4 +90,11 @@ public class Job {
     public void setCoreCompetency(CoreCompetency coreCompetency) {
         this.coreCompetency = coreCompetency;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    // CUSTOM toString() method developed using TDD
+
 }
