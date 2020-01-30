@@ -6,6 +6,7 @@ import org.launchcode.techjobs_oo.*;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertEquals;
 
 public class JobTest {
     Job jobOne;
@@ -40,4 +41,51 @@ public class JobTest {
         Job jobThree = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
         assertFalse(jobOne.equals(jobThree));
     }
+
+    //@Test
+    //public void forMySanity() {
+    //    assertEquals("ACME", jobOne.getEmployer().toString());
+    //}
+
+    @Test
+    public void testToStringReturnsStringWithBlankLineBeforeAndAfter() {
+        char[] chars = jobOne.toString().toCharArray();
+        assertEquals('\n', chars[0]);
+        assertEquals('\n', chars[chars.length-1]);
+    }
+
+    @Test
+    public void testToStringReturnsLabelsAndDataOnSeparateLines() {
+        String template = "\n" +
+                "ID: " + jobOne.getId() +
+                "\nName: " + jobOne.getName() +
+                "\nEmployer: " + jobOne.getEmployer().toString() +
+                "\nLocation: " + jobOne.getLocation().toString() +
+                "\nPosition Type: " + jobOne.getPositionType().toString() +
+                "\nCore Competency: " + jobOne.getCoreCompetency().toString() +
+                "\n";
+
+        assertEquals(template, jobOne.toString());
+    }
+
+    @Test
+    public void testStringReturnsMessageWhenDataMissing() {
+        Job jobFour = new Job("", new Employer("Cowabunga Inc."), new Location("Miami"), new PositionType("Code Surfer"), new CoreCompetency());
+
+        assertEquals("\n" +
+                "ID: " + jobFour.getId() +
+                "\nName: " + "Data not available" +
+                "\nEmployer: " + jobFour.getEmployer().toString() +
+                "\nLocation: " + jobFour.getLocation().toString() +
+                "\nPosition Type: " + jobFour.getPositionType().toString() +
+                "\nCore Competency: " + "Data not available" +
+                "\n", jobFour.toString());
+    }
+
+    @Test
+    public void testReturnJobDoesNotExistWhenOnlyHasId() {
+        Job jobFive = new Job();
+        assertEquals("OOPS! This job does not seem to exist.", jobFive.toString());
+    }
+
 }

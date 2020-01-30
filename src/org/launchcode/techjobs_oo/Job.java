@@ -96,5 +96,20 @@ public class Job {
     }
 
     // CUSTOM toString() method developed using TDD
+    public String toString() {
+        String noData = "Data not available";
 
+        if (name == null && employer == null && location == null && positionType ==  null && coreCompetency == null) {
+            return "OOPS! This job does not seem to exist.";
+        } else {
+            return "\n" +
+                    "ID: " + id +
+                    "\nName: " + (name == null || name == "" ? noData : name) +
+                    "\nEmployer: " + (employer == null || employer.toString() == null ? noData : employer.toString()) +
+                    "\nLocation: " + (location == null || location.toString() == null ? noData : location.toString()) +
+                    "\nPosition Type: " + (positionType == null || positionType.toString() == null ? noData : positionType.toString()) +
+                    "\nCore Competency: " + (coreCompetency == null || coreCompetency.toString() == null ? noData : coreCompetency.toString()) +
+                    "\n";
+        }
+    }
 }
