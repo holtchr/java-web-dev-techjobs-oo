@@ -105,10 +105,10 @@ public class Job {
             return "\n" +
                     "ID: " + id +
                     "\nName: " + (name == null || name == "" ? noData : name) +
-                    "\nEmployer: " + (employer == null || employer.toString() == null ? noData : employer.toString()) +
-                    "\nLocation: " + (location == null || location.toString() == null ? noData : location.toString()) +
-                    "\nPosition Type: " + (positionType == null || positionType.toString() == null ? noData : positionType.toString()) +
-                    "\nCore Competency: " + (coreCompetency == null || coreCompetency.toString() == null ? noData : coreCompetency.toString()) +
+                    "\nEmployer: " + (employer == null || employer.toString() == null || employer.toString() == "" ? noData : employer.toString()) +
+                    "\nLocation: " + (location == null || location.toString() == null || location.toString() == "" ? noData : location.toString()) +
+                    "\nPosition Type: " + (positionType == null || positionType.toString() == null || positionType.toString() == "" ? noData : positionType.toString()) +
+                    "\nCore Competency: " + (coreCompetency == null || coreCompetency.toString() == null || coreCompetency.toString() == "" ? noData : coreCompetency.toString()) +
                     "\n";
         }
     }

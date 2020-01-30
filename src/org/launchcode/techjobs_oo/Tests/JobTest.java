@@ -70,13 +70,13 @@ public class JobTest {
 
     @Test
     public void testStringReturnsMessageWhenDataMissing() {
-        Job jobFour = new Job("", new Employer("Cowabunga Inc."), new Location("Miami"), new PositionType("Code Surfer"), new CoreCompetency());
+        Job jobFour = new Job("", new Employer("Cowabunga Inc."), new Location(""), new PositionType("Code Surfer"), new CoreCompetency());
 
         assertEquals("\n" +
                 "ID: " + jobFour.getId() +
                 "\nName: " + "Data not available" +
                 "\nEmployer: " + jobFour.getEmployer().toString() +
-                "\nLocation: " + jobFour.getLocation().toString() +
+                "\nLocation: " + "Data not available" +
                 "\nPosition Type: " + jobFour.getPositionType().toString() +
                 "\nCore Competency: " + "Data not available" +
                 "\n", jobFour.toString());
